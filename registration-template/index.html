@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/registration_numbers.css">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+
+
+    <script type="text/x-template" class="registrationTemplate">
+        <ul class="list-of-plates">
+            {{#each plates}}
+                <li>{{this}}</li>
+            {{/each}}
+        </ul>
+    </script>
+
+
+
+
+
+
+    <title>Amirah | Registration Website</title>
+
+
+</head>
+
+<body class="">
+
+    <div class="container">
+        <h1>Registration Numbers</h1>
+        <div class="space">
+            <input type="text" id="inputBox" class="small-input" maxlength="10">
+        </div>
+        <div class="space">
+            <button id="addButton">Add</button>
+            <button id="resetButton">reset</button>
+        </div>
+        <div class="space">
+            <label for="town">Filter by town:</label>
+            <select name="towns" class="town">
+                <option value="">All</option>
+                <option value="CA">Cape Town</option>
+                <option value="CJ">Paarl</option>
+                <option value="CY">Bellville</option>
+            </select>
+        </div>
+    </div>
+
+
+
+    <div class="container">
+        <h3>Plain</h3>
+        <div class="space">
+            <p id="message"></p>
+        </div>
+        <div class="list-box">
+            <ul id="displayList" class="list-of-plates">
+            </ul>
+        </div>
+    </div>
+
+    <div class="container">
+        <h3>Handlebars</h3>
+        <div class="space">
+            <p class="message"></p>
+        </div>
+        <div class="list-box insertRegistrationTemplate">
+
+        </div>
+    </div>
+</body>
+<script src="./js/registration-factory.js"></script>
+<script src="./js/registration-dom.js"></script>
+
+</html>

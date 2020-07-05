@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital@1&display=swap');
+body {
+    background-color: darkgrey;
+    background-image: url("https://images.pexels.com/photos/533669/pexels-photo-533669.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+}
+
+.first{
+    
+}
+
+.space {
+    margin: 10px;
+}
+
+h1,
+p,
+label {
+    font-family: 'Lobster Two', cursive;
+    font-weight: lighter;
+}
+
+#addButton {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+#resetButton {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.container {
+    margin: 1em auto;
+    padding: 20px;
+    width: 40%;
+    background-color: ghostwhite;
+    opacity: 0.9;
+    border-radius: 5%;
+    text-align: center;
+    height: 95%;
+}
+
+.list-box ul li {
+    margin: 1em auto;
+}
+
+.list-of-plates {
+    padding: 20px;
+}
+
+.list-of-plates li {
+    margin: 5px;
+    padding: 10px;
+    height: 20px;
+    width: 100px;
+    background-color: yellow;
+    text-align: center;
+    border: black 2px solid;
+    border-radius: 5%;
+    list-style: none;
+    font-weight: bold;
+}
+
+
+/* Media Queries */
+
+@media only screen and (max-width: 270px) {
+    .small-input {
+        width: 100px;
+    }
+}
