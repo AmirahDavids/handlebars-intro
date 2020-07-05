@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="m.css">
+  <!-- Linking handlebars to document -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+  
+  <!-- Template for displaying each user of the users object -->
+  <script type="text/x-template" class="userTemplate">
+    <!-- For loop type thingy that cycles through a list of users -->
+    {{#each users}}
+    <tr>
+      <!-- accessing key values for each user object  -->
+      <td>{{username}}</td>
+      <td>{{firstName}}</td>
+      <td>{{lastName}}</td>
+      <td>{{email}}</td>
+    </tr>
+    {{/each}}
+  </script>
+
+  <!-- Linking dom to document -->
+  <script src="./users.js"></script>
+
+  <title>Handlebars Example</title>
+</head>
+
+<body>
+  <table>
+    <tr>
+      <th>Username</th>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Email</th>
+    </tr>
+    <tbody class="userData">
+       <!-- This is where template gets inserted on page -->
+    </tbody>
+  </table>
+</body>
+
+</html>
