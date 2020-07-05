@@ -5,7 +5,24 @@ window.addEventListener("DOMContentLoaded", function () {
     var userTemplate = Handlebars.compile(templateSource);
     //place where template goes on screen
     var userDataElem = document.querySelector(".userData");
+    var data = [{
 
+        username:"Harry",
+        firstName:"Harry",
+        lastName: "Parry",
+        email: "harry@gmail.com"
+    },{
+
+        username:"Daiyaanils",
+        firstName:"Daiyaan",
+        lastName: "Davids",
+        email: "daiyaand@gmail.com"
+    },{
+        username:"Max",
+        firstName:"Maxine",
+        lastName: "Dodge",
+        "email": "maxdodge@yahoo.com"
+    }]
    
     var userDataHTML = userTemplate({
         users: data,
