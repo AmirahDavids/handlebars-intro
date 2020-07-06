@@ -16,10 +16,13 @@ var Factory = function (stored) {
 
     function formatPlate(plate) {
 
+        
+
         var code = plate.split(" ")[0];
-        var regNumber = plate.split(" ")[1].replace(/-/g,);
+        var regNumber = plate.split(" ")[1] || "";
+        if (regNumber!==null) {
         var formattedPlate = "";
-        var length = regNumber.length;
+        var length = regNumber.replace(/-/g,).length;
 
         for (let i = 0; i < regNumber.length; i++) {
             let character = regNumber[i];
@@ -30,6 +33,8 @@ var Factory = function (stored) {
         }
 
         return code + " " + formattedPlate;
+        }
+        
     }
 
 

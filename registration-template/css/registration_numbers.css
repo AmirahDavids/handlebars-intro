@@ -5,7 +5,16 @@ body {
 }
 
 .first{
-    
+    width: 95%;
+}
+
+.second{
+    display: inline-block;
+    width: 45%;    
+}
+.third{
+    display: inline-block;
+    width: 45%;
 }
 
 .space {
@@ -32,9 +41,8 @@ label {
 }
 
 .container {
-    margin: 1em auto;
+    margin:  auto;
     padding: 20px;
-    width: 40%;
     background-color: ghostwhite;
     opacity: 0.9;
     border-radius: 5%;
@@ -44,6 +52,7 @@ label {
 
 .list-box ul li {
     margin: 1em auto;
+    z-index: -1;
 }
 
 .list-of-plates {
