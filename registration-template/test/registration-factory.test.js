@@ -102,4 +102,10 @@ describe("The Factory Function", function () {
             assert.deepEqual([ 'CY-0000', 'CY-25891'], factory.filterByTown("CY"));
         });
     });
+    describe("The format plate Function",function(){
+        it("should return a formatted number plate",function(){
+            var factory = Factory();
+            assert.equal("CA 123-456", factory.formatPlate("CA 123456"));
+        });
+    });
 });

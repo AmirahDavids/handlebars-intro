@@ -1,74 +1,123 @@
 window.addEventListener("DOMContentLoaded", function () {
 
-    var inputBox = document.getElementById("inputBox")
-    var addButton = document.getElementById("addButton");
-    var townSelect = document.querySelector('.town');
+    var inputBoxOne = document.getElementById("inputBoxOne");
+    var inputBoxTwo = document.getElementById("inputBoxTwo");
 
+    var addButtonOne = document.getElementById("addButtonOne");
+    var addButtonTwo = document.getElementById("addButtonTwo");
+
+    var townFilterOne = document.querySelector('.townOne');
+    var townFilterTwo = document.querySelector('.townTwo');
+
+    var messageOne = document.querySelector('.messageOne');
+    var messageTwo = document.querySelector('.messageTwo');
+
+    var resetBtnOne = document.getElementById("resetButtonOne")
+    var resetBtnTwo = document.getElementById("resetButtonTwo")
 
     var listToBeDisplayed = document.getElementById("displayList")
 
-    var resetBtn = document.getElementById("resetButton")
 
-    var stored = localStorage['plates'] ? JSON.parse(localStorage['plates']) : {};
+    var storedPlain = localStorage['plain_plates'] ? JSON.parse(localStorage['plain_plates']) : {};
+    var storedHandlebars = localStorage['handlebars_plates'] ? JSON.parse(localStorage['handlebars_plates']) : {};
 
-    var registrationFactory = Factory(stored);
+    var registrationFactoryOne = Factory(storedPlain);
+    var registrationFactoryTwo = Factory(storedHandlebars);
+
 
     var registrationTemplateSource = document.querySelector(".registrationTemplate").innerHTML;
     var registrationTemplate = Handlebars.compile(registrationTemplateSource);
     var insertRegistrationTemplate = document.querySelector(".insertRegistrationTemplate");
 
- 
+
 
     window.addEventListener("load", function () {
-        // Withour Handlebars
-        var list = registrationFactory.getRegList().reverse();
-        displayRegistrations(list);
-        // Handlebars
+        var listOne = registrationFactoryOne.getRegList().reverse();
+        var listTwo = registrationFactoryTwo.getRegList().reverse();
+
+        // Inserting plain data
+        displayRegistrations(listOne);
+
+        // Inserting handlebars data
         var registrationsDataHTML = registrationTemplate({
-            plates:  list
+            plates: listTwo
+
         });
         insertRegistrationTemplate.innerHTML = registrationsDataHTML;
     });
 
-    addButton.addEventListener("click", function () {
+    addButtonOne.addEventListener("click", function () {
 
-        var input = inputBox.value.toUpperCase();
+        var input = inputBoxOne.value.toUpperCase();
 
 
-        var formattedReg = registrationFactory.formatPlate(input)
+        var formattedReg = registrationFactoryOne.formatPlate(input)
 
-        var isValid = registrationFactory.validateReg(formattedReg);
+        var isValid = registrationFactoryOne.validateReg(formattedReg);
 
         if (isValid) {
-            var added = registrationFactory.addReg(formattedReg);
+            var added = registrationFactoryOne.addReg(formattedReg);
             if (added) {
+                messageOne.innerHTML = "Added successfully";
                 createPlate(formattedReg);
-                createPlateHandlebars();
-                var mapp = registrationFactory.getAllPlates();
-                localStorage['plates'] = JSON.stringify(mapp);
+
+                localStorage['plain_plates'] = JSON.stringify(registrationFactoryOne.getAllPlates());
+            } else {
+                messageOne.innerHTML = "Unsuccessful: Duplicate Registration";
             }
         } else {
-            message.innerHTML = "Please enter a valid registration like this CA 123456";
+            messageOne.innerHTML = "Please enter a valid registration like this CA 123456";
         }
-        inputBox.value = "";
-        inputBox.focus();
+        inputBoxOne.value = "";
+        inputBoxOne.focus();
     });
 
-    townSelect.addEventListener("change", function () {
-        listToBeDisplayed.innerHTML = "";
+    addButtonTwo.addEventListener("click", function () {
 
-        var list = registrationFactory.filterByTown(townSelect.value);
+        var input = inputBoxTwo.value.toUpperCase();
+        var formattedReg = registrationFactoryTwo.formatPlate(input)
+        var isValid = registrationFactoryTwo.validateReg(formattedReg);
+
+        if (isValid) {
+            var added = registrationFactoryTwo.addReg(formattedReg);
+            if (added) {
+                messageTwo.innerHTML = "Added successfully";
+                createPlateHandlebars();
+                localStorage['handlebars_plates'] = JSON.stringify(registrationFactoryTwo.getAllPlates());
+            } else {
+                messageTwo.innerHTML = "Unsuccessful: Duplicate Registration";
+            }
+        } else {
+            messageTwo.innerHTML = "Please enter a valid registration like this CA 123456";
+        }
+        inputBoxTwo.value = "";
+        inputBoxTwo.focus();
+    });
+
+    townFilterOne.addEventListener("change", function () {
+        listToBeDisplayed.innerHTML = "";
+        var list = registrationFactoryOne.filterByTown(townFilterOne.value);
         displayRegistrations(list);
+
+    });
+
+    townFilterTwo.addEventListener("change", function () {
+        var list = registrationFactoryTwo.filterByTown(townFilterTwo.value);
         var registrationsDataHTML = registrationTemplate({
-            plates:  list
+            plates: list
         });
         insertRegistrationTemplate.innerHTML = registrationsDataHTML;
-
     });
 
-    resetBtn.addEventListener("click", function () {
-        reset();
-        location.reload();
+    resetBtnOne.addEventListener("click", function () {
+        resetOne();
+        listToBeDisplayed.innerHTML = "";
+        messageOne.innerHTML = "successful: Cleared Registrations";
+    });
+    resetBtnTwo.addEventListener("click", function () {
+        resetTwo();
+        insertRegistrationTemplate.innerHTML = "";
+        messageTwo.innerHTML = "successful: Cleared Registrations";
     });
 
     function displayRegistrations(list) {
@@ -86,14 +135,17 @@ window.addEventListener("DOMContentLoaded", function () {
     }
 
     function createPlateHandlebars() {
-        var list = registrationFactory.getRegList().reverse();
+        var list = registrationFactoryTwo.getRegList().reverse();
         var registrationsDataHTML = registrationTemplate({
-            plates:  list
+            plates: list
         });
         insertRegistrationTemplate.innerHTML = registrationsDataHTML;
     }
 
-    function reset() {
-        localStorage.clear("registrations");
+    function resetOne() {
+        localStorage['plain_plates'] = JSON.stringify({});
+    }
+    function resetTwo() {
+        localStorage['handlebars_plates'] = JSON.stringify({});
     }
 });

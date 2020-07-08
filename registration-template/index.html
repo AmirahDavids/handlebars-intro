@@ -29,33 +29,26 @@
 </head>
 
 <body class="">
-
     <div class="container first">
-        <h1>Registration Numbers</h1>
+        <h3>Plain</h3>
         <div class="space">
-            <input type="text" id="inputBox" class="small-input" maxlength="10">
+            <input type="text" id="inputBoxOne" class="small-input" maxlength="10">
         </div>
         <div class="space">
-            <button id="addButton">Add</button>
-            <button id="resetButton">reset</button>
+            <button id="addButtonOne">Add</button>
+            <button id="resetButtonOne">reset</button>
         </div>
         <div class="space">
-            <label for="town">Filter by town:</label>
-            <select name="towns" class="town">
+            <p class="messageOne"></p>
+        </div>
+        <div class="space">
+            <label for="townOne">Filter by town:</label>
+            <select name="towns" class="townOne">
                 <option value="">All</option>
                 <option value="CA">Cape Town</option>
                 <option value="CJ">Paarl</option>
                 <option value="CY">Bellville</option>
             </select>
-        </div>
-    </div>
-
-
-
-    <div class="container second">
-        <h3>Plain</h3>
-        <div class="space">
-            <p id="message"></p>
         </div>
         <div class="list-box">
             <ul id="displayList" class="list-of-plates">
@@ -63,11 +56,28 @@
         </div>
     </div>
 
-    <div class="container third">
+    <div class="container second">
         <h3>Handlebars</h3>
         <div class="space">
-            <p class="message"></p>
+            <input type="text" id="inputBoxTwo" class="small-input" maxlength="10">
         </div>
+        <div class="space">
+            <button id="addButtonTwo">Add</button>
+            <button id="resetButtonTwo">reset</button>
+        </div>
+        <div class="space">
+            <p class="messageTwo"></p>
+        </div>
+        <div class="space">
+            <label for="townTwo">Filter by town:</label>
+            <select name="towns" class="townTwo">
+                <option value="">All</option>
+                <option value="CA">Cape Town</option>
+                <option value="CJ">Paarl</option>
+                <option value="CY">Bellville</option>
+            </select>
+        </div>
+
         <div class="list-box insertRegistrationTemplate">
 
         </div>

@@ -5,17 +5,14 @@ body {
 }
 
 .first{
-    width: 95%;
+    width: 40%;
 }
 
 .second{
-    display: inline-block;
-    width: 45%;    
+    
+    width: 40%;    
 }
-.third{
-    display: inline-block;
-    width: 45%;
-}
+
 
 .space {
     margin: 10px;
@@ -41,13 +38,13 @@ label {
 }
 
 .container {
-    margin:  auto;
+    float: left;
+    margin:  3%;
     padding: 20px;
     background-color: ghostwhite;
     opacity: 0.9;
     border-radius: 5%;
     text-align: center;
-    height: 95%;
 }
 
 .list-box ul li {
