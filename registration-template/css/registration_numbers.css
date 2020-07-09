@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital@1&display=swap');
 body {
+    opacity: 0.9;
     background-color: darkgrey;
     background-image: url("https://images.pexels.com/photos/533669/pexels-photo-533669.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
 }
@@ -9,10 +10,8 @@ body {
 }
 
 .second{
-    
     width: 40%;    
 }
-
 
 .space {
     margin: 10px;
@@ -42,7 +41,6 @@ label {
     margin:  3%;
     padding: 20px;
     background-color: ghostwhite;
-    opacity: 0.9;
     border-radius: 5%;
     text-align: center;
 }
@@ -72,8 +70,26 @@ label {
 
 /* Media Queries */
 
-@media only screen and (max-width: 270px) {
+@media only screen and (max-width: 375px) {
     .small-input {
         width: 100px;
     }
+  .inputBoxOne{
+      width: 90%;
+  }
+  .container{
+      width:80%;
+  }
+}
+
+@media only screen and (max-width: 667px) {
+    .small-input {
+        width: 100px;
+    }
+  .inputBoxOne{
+      width: 90%;
+  }
+  .container{
+      width:85%;
+  }
 }
