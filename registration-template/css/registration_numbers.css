@@ -46,16 +46,18 @@ label {
 }
 
 .list-box ul li {
-    margin: 1em auto;
+    margin: 5px;
     z-index: -1;
+    
 }
 
 .list-of-plates {
     padding: 20px;
+
 }
 
 .list-of-plates li {
-    margin: 5px;
+ 
     padding: 10px;
     height: 20px;
     width: 100px;
@@ -65,6 +67,14 @@ label {
     border-radius: 5%;
     list-style: none;
     font-weight: bold;
+    float: left;
+}
+.red{
+    color:red
+    
+}
+.green{
+    color:green
 }
 
 

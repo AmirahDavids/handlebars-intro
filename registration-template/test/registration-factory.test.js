@@ -25,13 +25,13 @@ describe("The Factory Function", function () {
     describe("The getRegList Function", function () {
         it("should return an empty list", function () {
             var factory = Factory();
-            // factory.addReg("CL-0000")
+            // factory.addReg("CY-0000")
             assert.deepEqual([], factory.getRegList());
         });
         it("should return an empty list", function () {
             var factory = Factory();
-            factory.addReg("CL-0000")
-            assert.deepEqual(["CL-0000"], factory.getRegList());
+            factory.addReg("CY-0000")
+            assert.deepEqual(["CY-0000"], factory.getRegList());
         });
     });
     describe("The getAllPlates Function", function () {
@@ -39,13 +39,13 @@ describe("The Factory Function", function () {
             var factory = Factory();
             factory.addReg("CJ-1478")
             factory.addReg("CA-1953")
-            factory.addReg("CL-0000")
-            factory.addReg("CL-25891")
+            factory.addReg("CY-0000")
+            factory.addReg("CY-25891")
 
 
 
             var theObject={
-                "CJ-1478":0,"CA-1953":0,"CL-0000":0,"CL-25891":0
+                "CJ-1478":0,"CA-1953":0,"CY-0000":0,"CY-25891":0
             };
 
 

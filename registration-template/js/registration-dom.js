@@ -59,18 +59,27 @@ window.addEventListener("DOMContentLoaded", function () {
             var added = registrationFactoryOne.addReg(formattedReg);
             if (added) {
                 messageOne.innerHTML = "Added successfully";
+                messageOne.classList.remove("red");
+                messageOne.classList.add("green");
                 createPlate(formattedReg);
 
                 localStorage['plain_plates'] = JSON.stringify(registrationFactoryOne.getAllPlates());
             } else {
                 messageOne.innerHTML = "Unsuccessful: Duplicate Registration";
+                messageOne.classList.remove("green");
+                messageOne.classList.add("red");
             }
         } else {
             messageOne.innerHTML = "Please enter a valid registration like this CA 123456";
+            messageOne.classList.remove("green");
+            messageOne.classList.add("red");
+
+            inputBoxOne.value = "";
+            inputBoxOne.focus();
         }
-        inputBoxOne.value = "";
-        inputBoxOne.focus();
     });
+
+
 
     addButtonTwo.addEventListener("click", function () {
 
@@ -82,13 +91,19 @@ window.addEventListener("DOMContentLoaded", function () {
             var added = registrationFactoryTwo.addReg(formattedReg);
             if (added) {
                 messageTwo.innerHTML = "Added successfully";
+                messageTwo.classList.remove("red");
+                messageTwo.classList.add("green");
                 createPlateHandlebars();
                 localStorage['handlebars_plates'] = JSON.stringify(registrationFactoryTwo.getAllPlates());
             } else {
                 messageTwo.innerHTML = "Unsuccessful: Duplicate Registration";
+                messageTwo.classList.remove("green");
+                messageTwo.classList.add("red");
             }
         } else {
             messageTwo.innerHTML = "Please enter a valid registration like this CA 123456";
+            messageTwo.classList.remove("green");
+            messageTwo.classList.add("red");
         }
         inputBoxTwo.value = "";
         inputBoxTwo.focus();
@@ -113,11 +128,15 @@ window.addEventListener("DOMContentLoaded", function () {
         resetOne();
         listToBeDisplayed.innerHTML = "";
         messageOne.innerHTML = "successful: Cleared Registrations";
+        messageOne.classList.remove("red");
+        messageOne.classList.add("green");
     });
     resetBtnTwo.addEventListener("click", function () {
         resetTwo();
         insertRegistrationTemplate.innerHTML = "";
         messageTwo.innerHTML = "successful: Cleared Registrations";
+        messageTwo.classList.remove("red");
+        messageTwo.classList.add("green");
     });
 
     function displayRegistrations(list) {
